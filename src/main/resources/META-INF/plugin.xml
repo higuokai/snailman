@@ -1,0 +1,70 @@
+<idea-plugin>
+    <id>com.github.snainman</id>
+
+    <name>Snail Man</name>
+
+    <vendor email="higuokai@gmail.com" url="#">None</vendor>
+
+    <description><![CDATA[
+    <p>A tool to assist in interface development on the IntelliJ platform.</p>
+    
+    <ul>
+        <li>Restful service automatic scanning, display, searching and navigation.</li>
+        <li>Simple API call tool.</li>
+    </ul>
+  ]]></description>
+
+    <!--  依赖  -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.github.snailman.view.SnailManWindowFactory"
+                    id="SnailMan" secondary="true" anchor="right" icon="/icons/system/snailMan.svg" />
+
+        <projectService serviceImplementation="com.github.snailman.configuration.SnailManOption"/>
+
+        <notificationGroup displayType="BALLOON" id="SnailMan.Notify"
+                           toolWindowId="SnailMan"/>
+    </extensions>
+    
+    <actions>
+        <action id="sm.apis.searchEverywhere" class="com.github.snailman.action.api.GotoRequestAction">
+            <add-to-group group-id="GoToTargetEx" anchor="first"/>
+            <!-- ctrl alt / -->
+            <keyboard-shortcut first-keystroke="control alt SLASH" keymap="$default"/>
+        </action>
+
+        <action id="sm.apis.refresh" class="com.github.snailman.action.api.RefreshAction"/>
+
+        <action id="sm.apis.expandAll" class="com.github.snailman.action.api.ExpandAllAction"/>
+        <action id="sm.apis.collapseAll" class="com.github.snailman.action.api.CollapseAllAction"/>
+
+        <action id="sm.apis.moduleFilter" class="com.github.snailman.action.api.ModuleFilterAction"/>
+        <action id="sm.apis.enableLibrary" class="com.github.snailman.action.api.EnableLibraryAction"/>
+
+
+        <!-- 右键api树 -->
+        <group id="sm.apis.requestMenu">
+            <action id="api.copyUrlAction" class="com.github.snailman.action.api.CopyUrlAction"/>
+            <action id="api.copyFullUrlAction" class="com.github.snailman.action.api.CopyFullUrlAction"/>
+            <action id="api.jumpToSourceAction" class="com.github.snailman.action.api.JumpToSourceAction"/>
+        </group>
+
+        <!-- 右键模块 -->
+        <group id="sm.apis.moduleMenu">
+            <action id="Module.editPort" class="com.github.snailman.action.api.ModulePortEditAction"/>
+            <action id="Module.editServiceContext" class="com.github.snailman.action.api.ModuleServiceContextEditAction"/>
+        </group>
+
+        <!-- 编辑框右键 -->
+        <group id="sm.apis.optionForEditors" text="RestfulApis">
+            <add-to-group group-id="Copy.Paste.Special" anchor="after" relative-to-action="PasteMultiple"/>
+            <group id="sm.apis.optionForEditors.copy" text="Snail-Man Copy">
+                <separator/>
+                <action id="api.edit.copyUrlAction" class="com.github.snailman.action.api.EditTextCopyUrlAction"/>
+                <action id="api.edit.copyFullUrlAcion" class="com.github.snailman.action.api.EditTextCopyFullUrlAction"/>
+            </group>
+        </group>
+    </actions>
+</idea-plugin>

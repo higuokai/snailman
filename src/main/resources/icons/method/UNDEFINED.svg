@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 2048 2048">
+	<circle fill-opacity="0.6" r="896" cx="1024" cy="1024" fill="#40b6e0"></circle>
+	<g transform="scale(0.8)"><path fill-opacity="0.7" transform="translate(675.84, 1924.6399999999999) rotate(180) scale(-1, 1)" fill="#231f20" d="M115 573l178 920h203l-179 -920q-2 -13 -8 -41q-30 -154 -30 -213q0 -92 54.5 -138t164.5 -46q89 0 151 28.5t107 90.5q22 31 44.5 106.5t49.5 212.5l178 920h203l-178 -920q-42 -219 -89.5 -321.5t-125.5 -165.5q-71 -56 -162 -85.5t-197 -29.5q-192 0 -295.5 90 t-103.5 256q0 37 8.5 100t26.5 156z"></path></g>
+</svg>
